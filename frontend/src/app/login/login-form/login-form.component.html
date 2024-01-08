@@ -1,0 +1,67 @@
+<div>
+  <form
+          class="form"
+          [formGroup]="loginForm"
+          (ngSubmit)="onLogin()">
+    <div style="width: 80%" >
+      <div>
+        <mat-label class="loginLabel">
+          <mat-icon aria-hidden="true" fontIcon="person"></mat-icon>
+          <label>Nom d'usager</label>
+        </mat-label>
+        <mat-form-field
+                floatLabel="always"
+                class="loginForm"
+                appearance="outline">
+          <input
+                  data-testid="InputUsername"
+                  matInput
+                  class="input"
+                  name="username"
+                  type="text"
+                  formControlName="username">
+        </mat-form-field>
+        <mat-error *ngIf="showUsernameRequiredError()">Entrer votre nom</mat-error>
+
+      </div>
+      <div>
+        <mat-label class="loginLabel" >
+          <mat-icon aria-hidden="true" fontIcon="key"></mat-icon>
+          <label>Mot de passe</label>
+        </mat-label>
+        <mat-form-field floatLabel="always" class="loginForm" appearance="outline">
+          <input
+                  data-testid="InputPassword"
+                  matInput
+                  class="input"
+                  name="password"
+
+                  formControlName="password" />
+          <button
+                  mat-icon-button
+                  matSuffix (click)="hidePassword = !hidePassword"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hidePassword">
+            <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+        <mat-error *ngIf="showPasswordRequiredError()">Entrer votre mot de passe</mat-error>
+      </div>
+
+    </div>
+
+    <div class="informationContainer"  >
+      <div class="information">
+        <mat-icon aria-hidden="false" aria-description="Information" fontIcon="info" style="width: 10%"></mat-icon>
+        <span>Le nom d’utilisateur ou le mot de passe doit contenir au moins un charactère</span>
+      </div>
+    </div>
+
+    <button
+            data-testid="btnConnexion"
+            mat-raised-button
+            type="submit"
+            class="button">Connexion</button>
+
+  </form>
+</div>

@@ -1,0 +1,9 @@
+#logIN {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#error {
+    color: #e84d4d;
+}

@@ -1,0 +1,19 @@
+<form (ngSubmit)="onPublishMessage()" [formGroup]="messageForm">
+    <input #file
+           name="file"
+           type="file"
+           style="display: none"
+           accept="image/*"
+           (change)="fileChanged($event)"
+    />
+
+    <span matSuffix (click)="file.click()">
+        <mat-icon>image</mat-icon>
+    </span>
+
+    <mat-form-field  class="message" appearance="outline">
+        <mat-label>Envoyer les messages</mat-label>
+        <input matInput class="input" name="message" type="text" formControlName="msg" />
+    </mat-form-field>
+    <mat-icon aria-hidden="true" fontIcon="send" (click)="onPublishMessage()"></mat-icon>
+</form>
